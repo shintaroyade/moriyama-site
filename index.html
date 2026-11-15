@@ -26,7 +26,7 @@
   "alternateName": "Shintaro Moriyama",
   "url": "https://shintaroyade.github.io/moriyama-site/",
   "image": "https://shintaroyade.github.io/moriyama-site/images/hero.jpg",
-  "description": "立命館アジア太平洋大学（APU）国際経営学部。プレゼン指導・イベント企画・学校向けの伴走・Webサイト制作で、挑戦する人の背中を押している。",
+  "description": "立命館アジア太平洋大学（APU）国際経営学部。プレゼン指導と学生プレゼンイベント「NEXT SPARK JAPAN」の主催を通して、挑戦する人の背中を押している。",
   "affiliation": {"@type": "CollegeOrUniversity", "name": "立命館アジア太平洋大学"},
   "homeLocation": {"@type": "Place", "name": "兵庫県"},
   "sameAs": ["https://www.instagram.com/shintaroyade/", "https://www.linkedin.com/in/%E6%85%8E%E5%A4%AA%E9%83%8E-%E6%A3%AE%E5%B1%B1-870508395/"],
@@ -56,6 +56,7 @@
   --font-en:"Outfit", sans-serif;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -172,6 +173,15 @@ header.scrolled{border-color:var(--line)}
 .about-inline{display:none;margin:16px 0 0}
 .about-inline img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
 @media (max-width:820px){ .about-inline{display:block} }
+.about-text .intro{font-size:17px;line-height:1.85}
+.about-text .intro b{color:var(--accent)}
+.moments{list-style:none;margin:6px 0 16px;padding:0;display:flex;flex-direction:column;gap:10px;position:relative}
+.moments::before{content:"";position:absolute;left:31px;top:18px;bottom:18px;width:2px;background:linear-gradient(var(--accent),rgba(196,0,124,.15))}
+.moments li{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 14px 10px;position:relative}
+.moments .yr{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--font-en);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.moments li:last-child .yr{background:var(--accent)}
+.moments b{display:block;font-family:var(--font-head);font-weight:900;font-size:18px;line-height:1.5}
+.moments p{margin:2px 0 0;font-size:15px;line-height:1.7;color:var(--sub)}
 .about-text h3.sub{font-family:var(--font-head);font-weight:900;font-size:clamp(20px,4.6vw,24px);margin:28px 0 10px;display:flex;align-items:center;gap:10px}
 .about-text h3.sub::before{content:"";width:18px;height:3px;border-radius:2px;background:var(--accent)}
 .about-text .lead{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,4.2vw,22px);line-height:1.65;margin:18px 0 18px;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:16px}
@@ -208,8 +218,8 @@ header.scrolled{border-color:var(--line)}
 .media-pair{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:14px;max-width:760px;align-items:start}
 .media-pair figure{margin:12px 0 0}
 .media-pair img{aspect-ratio:auto!important}
-@media (min-width:641px){.media-pair.even{grid-template-columns:1fr 1fr}.media-pair.even img{aspect-ratio:3/2!important;object-fit:cover}}
-@media (max-width:640px){.media-pair.even{grid-template-columns:1fr!important}.media-pair.even img{aspect-ratio:3/2!important}
+@media (min-width:641px){.media-pair.even{grid-template-columns:1fr 1fr}.media-pair.even img,.media-pair.even video{aspect-ratio:3/2!important;object-fit:cover}}
+@media (max-width:640px){.media-pair.even{grid-template-columns:1fr!important}.media-pair.even img,.media-pair.even video{aspect-ratio:16/9!important;object-fit:cover}
 .media-pair{grid-template-columns:1fr 1fr;gap:10px}.media-pair img{aspect-ratio:1/1!important;object-fit:cover}}
 .timeline figcaption{font-size:13px;color:var(--sub);margin-top:4px}
 
@@ -260,8 +270,10 @@ header.scrolled{border-color:var(--line)}
 .contact .btn:hover{background:#fff}
 .contact .btn[aria-disabled="true"]{background:#2C2C33;color:#A8A8B3;pointer-events:none}
 .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px}
-.socials a{color:#fff;text-decoration:none;border:1px solid #44444C;border-radius:999px;padding:0 20px;min-height:48px;display:inline-flex;align-items:center;font-size:15px}
-.socials a:hover{border-color:var(--accent-light);color:var(--accent-light)}
+.socials a{color:#fff;text-decoration:none;border:1px solid #55555E;border-radius:999px;padding:0 26px;min-height:54px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;transition:all .25s}
+.socials a:first-child{background:var(--accent-light);border-color:var(--accent-light);color:var(--dark)}
+.socials a:first-child:hover{background:#fff;border-color:#fff;color:var(--dark)}
+.socials a:not(:first-child):hover{border-color:var(--accent-light);color:var(--accent-light)}
 footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--font-en);font-size:13px;padding:20px 0 28px;border-top:1px solid #222228}
 
 /* ---------- スクロールの演出 ---------- */
@@ -317,8 +329,8 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         <li><a href="#about">About</a></li>
         <li><a href="#works">実績</a></li>
         <li><a href="#media">メディア</a></li>
-        <li><a href="#services">できること</a></li>
-        <li><a class="cta-mini" href="#contact">お問い合わせ</a></li>
+        <li><a href="#services">活動</a></li>
+        <li><a class="cta-mini" href="#contact">つながる</a></li>
       </ul>
     </nav>
   </div>
@@ -340,7 +352,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           <p class="aff">立命館アジア太平洋大学（APU）国際経営学部 1回生</p>
           <p class="role">中高生・大学生のプレゼン指導と、挑戦を語るイベントづくりをしています。</p>
           <div class="btns">
-            <a class="btn" href="#contact">プレゼン指導のご相談
+            <a class="btn" href="#about">プロフィールを見る
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn ghost" href="#works">実績を見る</a>
@@ -365,10 +377,16 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
       <div class="about-text">
         <p class="en">About</p>
         <h2 class="reveal">はじめまして、<br>森山慎太郎です。</h2>
-        <p class="reveal">兵庫県出身、立命館アジア太平洋大学（APU）国際経営学部の1回生です。いまは中高生・大学生のプレゼン指導や、学生が自分の挑戦を語るイベントの企画をしています。</p>
+        <p class="intro reveal">兵庫県出身、立命館アジア太平洋大学（APU）国際経営学部の1回生。中高生・大学生のプレゼン指導と、学生が自分の挑戦を語るイベント<b>「NEXT SPARK JAPAN」</b>の主催をしています。</p>
 
         <h3 class="sub reveal">なぜ、プレゼンなのか。</h3>
-        <p class="reveal">高校時代、仲間と挑んだ探究学習の全国大会「クエストカップ」で、グランプリと参加者投票のWow賞をW受賞しました。その後の東海学生AWARDでは一度敗れながらも、観客投票のワイルドカードで決勝の舞台へ。伝え方ひとつで、人の心も結果も動く。それを身をもって知りました。</p>
+        <p class="reveal">原点は、3つの舞台にあります。</p>
+        <ol class="moments">
+          <li class="reveal"><span class="yr">2024</span><div><b>伝えて、勝つ。</b><p>仲間と挑んだ探究学習の全国大会「クエストカップ」で、グランプリと参加者投票のWow賞をW受賞。</p></div></li>
+          <li class="reveal"><span class="yr">2025</span><div><b>落ちても、伝える。</b><p>東海学生AWARDで一度は敗退。それでも観客投票のワイルドカードで、決勝の舞台に立ちました。</p></div></li>
+          <li class="reveal"><span class="yr">2026</span><div><b>今度は、舞台をつくる。</b><p>学生が自分の挑戦を語れる場として、プレゼンイベント「NEXT SPARK JAPAN」を主催。</p></div></li>
+        </ol>
+        <p class="reveal">伝え方ひとつで、人の心も結果も動く。それを身をもって知りました。</p>
         <!-- スマホだけで表示する写真（写真を変えるときは images/speaking-wide.jpg を差し替え） -->
         <figure class="about-inline rimg">
           <img src="images/speaking-wide.jpg" alt="マイクを持って登壇する森山慎太郎" width="960" height="720" loading="lazy">
@@ -415,8 +433,25 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         -->
         <li class="reveal">
           <span class="date">2026.12</span>
-          <h3>学生プレゼンイベント「UNMUTE to ACTION」主催<span class="badge soon">開催予定</span></h3>
-          <p>APU生が自分の挑戦を語るプレゼンイベントを企画中。登壇者の募集からPR動画の制作まで手がけています。</p>
+          <h3>NEXT SPARK JAPAN 第2回「UNMUTE to ACTION」主催<span class="badge soon">開催予定</span></h3>
+          <p>5月の第1回に続く、APU生が自分の挑戦を語るプレゼンイベントを企画中。登壇者の募集からPR動画の制作まで手がけています。</p>
+        </li>
+        <li class="reveal">
+          <span class="date">2026.05.10</span>
+          <h3>NEXT SPARK JAPAN Vol.1「IGNITION」主催</h3>
+          <p>APUで挑戦する学生たちのプレゼンイベントを初開催。登壇者のプレゼンと交流会を通して、参加者が「次の一歩」を見つける場をつくりました。</p>
+          <div class="media-pair even">
+            <figure class="rimg">
+              <!-- 動画を変えるときは images/nextspark-vol1.mp4 を差し替え -->
+              <video src="images/nextspark-vol1.mp4" poster="images/nextspark-vol1-poster.jpg" controls autoplay playsinline muted loop preload="metadata" width="960" height="540"></video>
+              <figcaption>当日のダイジェスト（音声はタップでON）</figcaption>
+            </figure>
+            <figure class="rimg">
+              <!-- 写真を変えるときは images/nextspark-vol1-group.jpg を差し替え -->
+              <img src="images/nextspark-vol1-group.jpg" alt="NEXT SPARK JAPAN Vol.1の参加者の集合写真" width="1400" height="933" loading="lazy">
+              <figcaption>参加者のみなさんと</figcaption>
+            </figure>
+          </div>
         </li>
         <li class="reveal">
           <span class="date">2025</span>
@@ -497,7 +532,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
   <section id="services">
     <div class="wrap">
       <p class="en">What I Do</p>
-      <h2 class="reveal">できること</h2>
+      <h2 class="reveal">取り組んでいること</h2>
       <div class="services">
         <article class="service reveal">
           <span class="num">01</span>
@@ -541,24 +576,18 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         </article>
       </div>
 
-      <!-- 依頼の流れ -->
-      <h3 class="flow-title reveal">ご依頼の流れ</h3>
-      <ol class="flow">
-        <li class="reveal"><span class="step">STEP 1</span><b>フォームでご相談</b><p>内容・時期・人数など、決まっている範囲でお送りください。</p></li>
-        <li class="reveal"><span class="step">STEP 2</span><b>打ち合わせ</b><p>オンラインで目的やゴールをすり合わせ、内容をご提案します。</p></li>
-        <li class="reveal"><span class="step">STEP 3</span><b>講座・伴走スタート</b><p>本番まで一緒に走ります。終わったあとの振り返りまで行います。</p></li>
-      </ol>
+      <!-- 依頼の受付を始めるときは「ご依頼の流れ」をここに戻せます（Claudeに頼めばOK） -->
     </div>
   </section>
 
   <!-- ===== 5. お問い合わせ ===== -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <p class="en">Contact</p>
-      <h2 class="reveal">プレゼン指導・登壇の<br>ご相談はこちらから。</h2>
-      <p class="note reveal">学校での講座、探究発表の指導、イベントへの登壇など、お気軽にご相談ください。</p>
-      <!-- お問い合わせボタン：リンクはページ下の LINKS で設定します -->
-      <a class="btn reveal" id="formBtn" href="#" aria-disabled="true">お問い合わせフォーム（準備中）</a>
+      <p class="en">Connect</p>
+      <h2 class="reveal">活動の最新情報は、<br>SNSで発信しています。</h2>
+      <p class="note reveal">プレゼンのこと、イベントのこと、日々の挑戦のこと。気軽にフォローしてください。</p>
+      <!-- お問い合わせフォーム：依頼を受け付けるようになったら、ページ下の LINKS.form にURLを入れると表示されます -->
+      <a class="btn reveal" id="formBtn" href="#" hidden>お問い合わせフォームへ</a>
       <div class="socials" id="socials"></div>
     </div>
   </section>
@@ -573,7 +602,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
    ★ 連絡先リンクはここだけ書き換えればOK ★
    URLを '' のままにした項目は自動で非表示になります
    ========================================================= */
-const LINKS = {
+const LINKS = {  // 依頼を受け付けるようになったら form にURLを入れる
   form:      '',  // GoogleフォームのURL（例：'https://forms.gle/xxxx'）
   instagram: 'https://www.instagram.com/shintaroyade/',
   linkedin:  'https://www.linkedin.com/in/%E6%85%8E%E5%A4%AA%E9%83%8E-%E6%A3%AE%E5%B1%B1-870508395/',
@@ -590,7 +619,7 @@ const LABELS = {instagram:'Instagram', linkedin:'LinkedIn', meet:'デジタル�
   const btn = document.getElementById('formBtn');
   if (LINKS.form){
     btn.href = LINKS.form; btn.target = '_blank'; btn.rel = 'noopener';
-    btn.removeAttribute('aria-disabled'); btn.textContent = 'お問い合わせフォームへ';
+    btn.hidden = false;
   }
   const box = document.getElementById('socials');
   Object.keys(LABELS).forEach(k => {
@@ -639,7 +668,7 @@ if (!REDUCE && window.Lenis){
 })();
 
 /* ---- カードやタイムラインを少しずつずらして表示 ---- */
-document.querySelectorAll('.services, .media-list, .timeline, .profile, .flow').forEach(group => {
+document.querySelectorAll('.services, .media-list, .timeline, .profile, .moments').forEach(group => {
   [...group.children].forEach((el, i) => {
     const t = el.classList.contains('reveal') ? el : el.querySelector('.reveal');
     if (t) t.style.transitionDelay = Math.min(i, 5) * 110 + 'ms';
