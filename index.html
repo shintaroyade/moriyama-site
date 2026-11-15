@@ -62,6 +62,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
+html,body{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.8;letter-spacing:.02em}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent)}
@@ -69,7 +70,8 @@ a{color:var(--accent)}
 .en{font-family:var(--font-en);font-weight:700;letter-spacing:.14em;font-size:13px;color:var(--accent);text-transform:uppercase;margin:0 0 4px}
 h2,h3{text-wrap:balance}
 p,dd,figcaption,li{text-wrap:pretty}
-.nw{display:inline-block;white-space:nowrap}
+.nw{display:inline-block;white-space:nowrap;max-width:100%}
+@media (min-width:821px){ br.sp{display:none} }
 h2{font-family:var(--font-head);font-weight:900;font-size:clamp(28px,6vw,40px);line-height:1.4;margin:0 0 20px}
 section{padding:72px 0}
 @media (max-width:760px){ section{padding:52px 0} }
@@ -121,9 +123,10 @@ header.scrolled{border-color:var(--line)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
 .nav ul a{color:var(--ink);text-decoration:none}
 .nav ul a:hover{color:var(--accent)}
-.nav .cta-mini{background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px}
+.nav .cta-mini{white-space:nowrap;background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px}
 .nav .cta-mini:hover{background:var(--accent);color:#fff}
 @media (max-width:760px){ .nav ul li:not(:last-child){display:none} }
+@media (max-width:359px){ .logo{font-size:14px;letter-spacing:.02em} .nav .cta-mini{padding:7px 12px;font-size:14px} }
 
 /* ---------- ファーストビュー ---------- */
 .hero{padding:36px 0 56px}
@@ -282,7 +285,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
 
 /* ---------- スクロールの演出 ---------- */
 #progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--accent-light);transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
-.rimg{clip-path:inset(12% 0 12% 0 round 18px);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.rimg{overflow:hidden;border-radius:18px;clip-path:inset(12% 0 12% 0 round 18px);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
 .rimg img,.rimg video{transform:scale(1.15);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
 .rimg.in{clip-path:inset(0 0 0 0 round 18px)}
 .rimg.in img,.rimg.in video{transform:scale(1)}
@@ -353,8 +356,8 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         </h1>
         <div class="fade">
           <p class="name">森山 慎太郎<span>Shintaro Moriyama</span></p>
-          <p class="aff">立命館アジア太平洋大学（APU）国際経営学部 1回生</p>
-          <p class="role">中高生・大学生のプレゼン指導と、挑戦を語るイベントづくりをしています。</p>
+          <p class="aff"><span class="nw">立命館アジア太平洋大学（APU）</span><span class="nw">国際経営学部 1回生</span></p>
+          <p class="role"><span class="nw">中高生・大学生の</span><span class="nw">プレゼン指導と、</span><span class="nw">挑戦を語る</span><span class="nw">イベントづくりを</span><span class="nw">しています。</span></p>
           <div class="btns">
             <a class="btn" href="#about">プロフィールを見る
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -381,22 +384,22 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
       <div class="about-text">
         <p class="en">About</p>
         <h2 class="reveal">はじめまして、<br>森山慎太郎です。</h2>
-        <p class="intro reveal">兵庫県出身、立命館アジア太平洋大学（APU）国際経営学部の1回生。中高生・大学生のプレゼン指導と、学生が自分の挑戦を語るイベント<b>「NEXT SPARK JAPAN」</b>の主催をしています。</p>
+        <p class="intro reveal"><span class="nw">兵庫県出身、</span><span class="nw">立命館アジア太平洋大学（APU）</span><span class="nw">国際経営学部の1回生。</span><br class="sp"><span class="nw">中高生・大学生への</span><span class="nw">プレゼン指導と、</span><span class="nw">学生が挑戦を語る</span><span class="nw">イベント</span><b class="nw">「NEXT SPARK JAPAN」</b><span class="nw">の主催を</span><span class="nw">しています。</span></p>
 
         <h3 class="sub reveal">なぜ、プレゼンなのか。</h3>
         <p class="reveal">原点は、3つの舞台にあります。</p>
         <ol class="moments">
-          <li class="reveal"><span class="yr">2024</span><div><b>伝えて、勝つ。</b><p>仲間と挑んだ探究学習の全国大会「クエストカップ」で、グランプリと参加者投票のWow賞をW受賞。</p></div></li>
-          <li class="reveal"><span class="yr">2025</span><div><b>落ちても、伝える。</b><p>東海学生AWARDで一度は敗退。それでも観客投票のワイルドカードで、決勝の舞台に立ちました。</p></div></li>
-          <li class="reveal"><span class="yr">2026</span><div><b>今度は、舞台をつくる。</b><p>学生が自分の挑戦を語れる場として、プレゼンイベント「NEXT SPARK JAPAN」を主催。</p></div></li>
+          <li class="reveal"><span class="yr">2024</span><div><b><span class="nw">伝えて、</span><span class="nw">勝つ。</span></b><p><span class="nw">仲間と挑んだ</span><span class="nw">探究学習の全国大会</span><span class="nw">「クエストカップ」で、</span><span class="nw">グランプリと</span><span class="nw">参加者投票のWow賞を</span><span class="nw">W受賞。</span></p></div></li>
+          <li class="reveal"><span class="yr">2025</span><div><b><span class="nw">落ちても、</span><span class="nw">伝える。</span></b><p><span class="nw">東海学生AWARDで</span><span class="nw">一度は敗退。</span><span class="nw">それでも</span><span class="nw">観客投票の</span><span class="nw">ワイルドカードで、</span><span class="nw">決勝の舞台に</span><span class="nw">立ちました。</span></p></div></li>
+          <li class="reveal"><span class="yr">2026</span><div><b><span class="nw">今度は、</span><span class="nw">舞台をつくる。</span></b><p><span class="nw">学生が挑戦を語れる</span><span class="nw">場をつくるため、</span><span class="nw">プレゼンイベント</span><span class="nw">「NEXT SPARK JAPAN」を</span><span class="nw">主催。</span></p></div></li>
         </ol>
-        <p class="reveal">伝え方ひとつで、人の心も結果も動く。それを身をもって知りました。</p>
+        <p class="reveal"><span class="nw">伝え方ひとつで、</span><span class="nw">人の心も</span><span class="nw">結果も動く。</span><br><span class="nw">それを</span><span class="nw">身をもって</span><span class="nw">知りました。</span></p>
         <!-- スマホだけで表示する写真（写真を変えるときは images/speaking-wide.jpg を差し替え） -->
         <figure class="about-inline rimg">
           <img src="images/speaking-wide.jpg" alt="マイクを持って登壇する森山慎太郎" width="960" height="720" loading="lazy">
         </figure>
-        <p class="lead reveal">AIで、60〜70点のアイデアは誰でも出せる時代。だからこそ差がつくのは、<mark>「なぜ自分がやるのか」を自分の言葉で伝える力</mark>だと考えています。</p>
-        <p class="reveal">だから僕は、自分が課題を解くことよりも、<strong>課題に挑む人の背中を押すこと</strong>を選びました。想いはあるのに言葉にできない人が、堂々と一歩を踏み出せるように。プレゼンを研究し、伝え、場をつくっています。</p>
+        <p class="lead reveal"><span class="nw">AIで、</span><span class="nw">60〜70点のアイデアは</span><span class="nw">誰でも出せる時代。</span><br><span class="nw">だからこそ</span><span class="nw">差がつくのは、</span><mark><span class="nw">「なぜ自分がやるのか」を</span><span class="nw">自分の言葉で</span><span class="nw">伝える力</span></mark><span class="nw">だと</span><span class="nw">考えています。</span></p>
+        <p class="reveal"><span class="nw">だから僕は、</span><span class="nw">自分が課題を</span><span class="nw">解くことよりも、</span><strong><span class="nw">課題に挑む人の</span><span class="nw">背中を押すこと</span></strong><span class="nw">を選びました。</span><br><span class="nw">想いはあるのに</span><span class="nw">言葉にできない人が、</span><span class="nw">堂々と</span><span class="nw">一歩を</span><span class="nw">踏み出せるように。</span><br><span class="nw">プレゼンを研究し、</span><span class="nw">伝え、</span><span class="nw">場をつくっています。</span></p>
         <dl class="profile reveal">
           <div><dt>出身</dt><dd>兵庫県</dd></div>
           <div><dt>所属</dt><dd>APU 国際経営学部</dd></div>
@@ -416,7 +419,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
       </div>
       <p class="en">Vision</p>
       <h2 id="vision-title" class="reveal">目指すのは、<br><em>挑戦が連鎖する</em>社会。</h2>
-      <p class="reveal">誰かの挑戦が、隣の誰かの「やってみよう」に火をつける。その最初の火花は、いつも「人に話すこと」から生まれると思っています。</p>
+      <p class="reveal"><span class="nw">ひとりの挑戦が、</span><span class="nw">誰かの</span><span class="nw">次の一歩になる。</span><br><span class="nw">その連鎖を、</span><span class="nw">伝える力で</span><span class="nw">広げていきます。</span></p>
     </div>
   </section>
 
@@ -437,17 +440,17 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         -->
         <li class="reveal">
           <span class="date">2026.12</span>
-          <h3>NEXT SPARK JAPAN 第2回「UNMUTE to ACTION」主催<span class="badge soon">開催予定</span></h3>
+          <h3><span class="nw">NEXT SPARK JAPAN</span><span class="nw"> 第2回</span> <span class="nw">「UNMUTE to ACTION」主催</span><span class="badge soon">開催予定</span></h3>
           <p>5月の第1回に続く、APU生が自分の挑戦を語るプレゼンイベントを企画中。登壇者の募集からPR動画の制作まで手がけています。</p>
         </li>
         <li class="reveal">
           <span class="date">2026.09 –</span>
-          <h3>RVSS（REALVALUE STUDENTS）学生運営</h3>
+          <h3><span class="nw">RVSS</span><span class="nw">（REALVALUE STUDENTS）</span><span class="nw">学生運営</span></h3>
           <p>REALVALUEの学生コミュニティ「RVSS」に参加し、学生側の運営を担当しています。</p>
         </li>
         <li class="reveal">
           <span class="date">2026.05.10</span>
-          <h3>NEXT SPARK JAPAN Vol.1「IGNITION」主催</h3>
+          <h3><span class="nw">NEXT SPARK JAPAN</span> <span class="nw">Vol.1「IGNITION」主催</span></h3>
           <p>APUで挑戦する学生たちのプレゼンイベントを初開催。登壇者のプレゼンと交流会を通して、参加者が「次の一歩」を見つける場をつくりました。</p>
           <div class="media-pair even">
             <figure class="rimg">
@@ -595,7 +598,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
     <div class="wrap">
       <p class="en">Connect</p>
       <h2 class="reveal">活動の最新情報は、<br>SNSで発信しています。</h2>
-      <p class="note reveal">プレゼンのこと、イベントのこと、日々の挑戦のこと。気軽にフォローしてください。</p>
+      <p class="note reveal"><span class="nw">プレゼンのこと、</span><span class="nw">イベントのこと、</span><span class="nw">日々の挑戦のこと。</span><br><span class="nw">気軽に</span><span class="nw">フォローしてください。</span></p>
       <!-- お問い合わせフォーム：依頼を受け付けるようになったら、ページ下の LINKS.form にURLを入れると表示されます -->
       <a class="btn reveal" id="formBtn" href="#" hidden>お問い合わせフォームへ</a>
       <div class="socials" id="socials"></div>
@@ -629,9 +632,9 @@ const LABELS = {instagram:'Instagram', linkedin:'LinkedIn', meet:'デジタル�
 /* ---- 日本語の改行を、文節の切れ目で行うようにする ---- */
 (function(){
   if (!window.budouxJa) return;
-  const sel = 'main h2, main h3, main p, main dd, main figcaption, main .service li, main .moments b, .hero .role';
+  const sel = 'main h2, main h3, main p, main dd, main figcaption, main .service li, main .moments b';
   document.querySelectorAll(sel).forEach(el => {
-    if (el.closest('#intro')) return;
+    if (el.closest('#intro') || el.querySelector('.nw') || el.closest('.nw')) return;
     try { window.budouxJa.applyToElement(el); } catch(e){}
   });
 })();
