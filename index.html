@@ -67,6 +67,8 @@ img{max-width:100%;height:auto;display:block}
 a{color:var(--accent)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 .en{font-family:var(--font-en);font-weight:700;letter-spacing:.14em;font-size:13px;color:var(--accent);text-transform:uppercase;margin:0 0 4px}
+h2,h3{text-wrap:balance}
+.nw{display:inline-block;white-space:nowrap}
 h2{font-family:var(--font-head);font-weight:900;font-size:clamp(28px,6vw,40px);line-height:1.4;margin:0 0 20px}
 section{padding:72px 0}
 @media (max-width:760px){ section{padding:52px 0} }
@@ -194,7 +196,8 @@ header.scrolled{border-color:var(--line)}
 @media (max-width:820px){
   .about-grid{grid-template-columns:1fr;gap:24px}
   .about-photo{display:none}
-  .profile{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .profile{display:flex;flex-wrap:wrap}
+  .profile div{flex:1 1 auto}
   .profile dd{font-size:13px}
   .profile div{padding:8px 10px}
 }
@@ -478,7 +481,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         </li>
         <li class="reveal">
           <span class="date">2024</span>
-          <h3>クエストカップ2024 グランプリ＆Wow賞<span class="badge">W受賞</span></h3>
+          <h3>クエストカップ2024 <span class="nw">グランプリ＆Wow賞</span><span class="badge">W受賞</span></h3>
           <p>チーム「布団が吹っ飛んだ!!」として、インターネットの世界に「触れる」触覚スーツ「ToucH」を提案。コーポレートアクセス部門で「Qグループグランプリ＆LINEヤフー企業賞」を受賞し、さらに参加者投票による「Wow賞」とのW受賞を果たしました。聖心学園中等教育学校として3度目のグランプリです。</p>
           <p class="award-note"><b>Wow賞とは</b>全国大会の参加者全員による投票で、最も優れたチームに贈られる賞。審査員だけでなく、会場にいた同世代の仲間からも一番の支持を集めた証です。</p>
           <div class="media-pair">
@@ -603,6 +606,8 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
 
 <!-- ぬるぬるスクロール（Lenis） -->
 <script src="js/lenis.min.js"></script>
+<!-- 日本語の改行を文節で整える（BudouX） -->
+<script src="js/budoux-ja.js"></script>
 <script>
 /* =========================================================
    ★ 連絡先リンクはここだけ書き換えればOK ★
@@ -619,6 +624,16 @@ const LINKS = {  // 依頼を受け付けるようになったら form にURLを
   nextspark: '',  // NEXT SPARK JAPAN のURL
 };
 const LABELS = {instagram:'Instagram', linkedin:'LinkedIn', meet:'デジタル名刺（MEET）', x:'X', line:'LINE', mail:'メール', nextspark:'NEXT SPARK JAPAN'};
+
+/* ---- 日本語の改行を、文節の切れ目で行うようにする ---- */
+(function(){
+  if (!window.budouxJa) return;
+  const sel = 'main h2, main h3, main p, main dd, main figcaption, main .service li, main .moments b, .hero .role';
+  document.querySelectorAll(sel).forEach(el => {
+    if (el.closest('#intro')) return;
+    try { window.budouxJa.applyToElement(el); } catch(e){}
+  });
+})();
 
 /* ---- 連絡先を反映 ---- */
 (function(){
