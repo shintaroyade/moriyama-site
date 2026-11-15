@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>森山慎太郎（Shintaro Moriyama）| 伝える力で、挑戦する人を前へ。</title>
-<meta name="description" content="森山慎太郎（APU 国際経営学部）。プレゼン指導・イベント企画・学校向けの伴走・Webサイト制作で、挑戦する人の背中を押しています。">
+<meta name="description" content="森山慎太郎（APU 国際経営学部）。クエストカップ2024 グランプリ＆Wow賞。プレゼン指導・イベント企画・学校向けの伴走・Webサイト制作で、挑戦する人の背中を押しています。">
 <!-- SNSでシェアされたときの表示 -->
 <meta property="og:title" content="森山慎太郎 | 伝える力で、挑戦する人を前へ。">
 <meta property="og:description" content="プレゼン指導・イベント企画・学校向けの伴走で、挑戦する人の背中を押しています。">
@@ -30,7 +30,7 @@
   "affiliation": {"@type": "CollegeOrUniversity", "name": "立命館アジア太平洋大学"},
   "homeLocation": {"@type": "Place", "name": "兵庫県"},
   "sameAs": ["https://www.instagram.com/shintaroyade/", "https://www.linkedin.com/in/%E6%85%8E%E5%A4%AA%E9%83%8E-%E6%A3%AE%E5%B1%B1-870508395/"],
-  "award": ["クエストカップ2024 グランプリ", "クエストカップ2024 Wow賞", "第8回 東海学生AWARD2025 ファイナリスト"]
+  "award": ["クエストカップ2024 グランプリ", "クエストカップ2024 Wow賞", "第8回 東海学生AWARD2025 わくッチ賞", "第8回 東海学生AWARD2025 ファイナリスト"]
 }
 </script>
 
@@ -200,6 +200,7 @@ header.scrolled{border-color:var(--line)}
 .timeline p{margin:0;color:var(--sub);font-size:16px}
 .timeline .award-note{margin:12px 0 0;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:14px;line-height:1.7;color:var(--sub)}
 .timeline .award-note b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+.timeline .badge.soon{background:var(--accent)}
 .timeline .badge{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;letter-spacing:.06em}
 .timeline figure{margin:12px 0 0;max-width:640px}
 .timeline figure img{border-radius:18px;aspect-ratio:3/2;object-fit:cover;width:100%}
@@ -207,7 +208,9 @@ header.scrolled{border-color:var(--line)}
 .media-pair{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:14px;max-width:760px;align-items:start}
 .media-pair figure{margin:12px 0 0}
 .media-pair img{aspect-ratio:auto!important}
-@media (max-width:640px){.media-pair{grid-template-columns:1fr 1fr;gap:10px}.media-pair img{aspect-ratio:1/1!important;object-fit:cover}}
+@media (min-width:641px){.media-pair.even{grid-template-columns:1fr 1fr}.media-pair.even img{aspect-ratio:3/2!important;object-fit:cover}}
+@media (max-width:640px){.media-pair.even{grid-template-columns:1fr!important}.media-pair.even img{aspect-ratio:3/2!important}
+.media-pair{grid-template-columns:1fr 1fr;gap:10px}.media-pair img{aspect-ratio:1/1!important;object-fit:cover}}
 .timeline figcaption{font-size:13px;color:var(--sub);margin-top:4px}
 
 /* ---------- 掲載メディア ---------- */
@@ -234,6 +237,19 @@ header.scrolled{border-color:var(--line)}
 .service li{padding:4px 0 4px 22px;position:relative;border-top:1px dashed var(--line)}
 .service li::before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 @media (max-width:760px){ .services{grid-template-columns:1fr} }
+
+/* ---------- 依頼の流れ ---------- */
+.flow-title{font-family:var(--font-head);font-weight:900;font-size:22px;margin:40px 0 14px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:none}
+.flow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.flow .step{display:block;font-family:var(--font-en);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--accent)}
+.flow b{display:block;font-size:18px;margin:2px 0 4px}
+.flow p{margin:0;font-size:14px;color:var(--sub);line-height:1.7}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-10px;top:50%;width:8px;height:8px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:translateY(-50%) rotate(45deg);z-index:1}
+@media (max-width:760px){
+  .flow{grid-template-columns:1fr;gap:14px}
+  .flow li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%) rotate(135deg)}
+}
 
 /* ---------- お問い合わせ ---------- */
 .contact{background:var(--dark);color:#fff;text-align:center;padding:64px 0 48px}
@@ -349,10 +365,10 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
       <div class="about-text">
         <p class="en">About</p>
         <h2 class="reveal">はじめまして、<br>森山慎太郎です。</h2>
-        <p class="reveal">兵庫県出身、立命館アジア太平洋大学（APU）国際経営学部の1回生です。高校時代にプレゼンで全国大会のグランプリを受賞した経験をもとに、いまは中高生や大学生のプレゼン指導、学生が自分の挑戦を語るイベントの企画をしています。</p>
+        <p class="reveal">兵庫県出身、立命館アジア太平洋大学（APU）国際経営学部の1回生です。いまは中高生・大学生のプレゼン指導や、学生が自分の挑戦を語るイベントの企画をしています。</p>
 
         <h3 class="sub reveal">なぜ、プレゼンなのか。</h3>
-        <p class="reveal">高校時代、探究学習の全国大会「クエストカップ」に仲間と挑み、グランプリを受賞しました。その後の東海学生AWARDでは一度敗れながらも、観客投票のワイルドカードで決勝の舞台へ。伝え方ひとつで、人の心も結果も動く。それを身をもって知りました。</p>
+        <p class="reveal">高校時代、仲間と挑んだ探究学習の全国大会「クエストカップ」で、グランプリと参加者投票のWow賞をW受賞しました。その後の東海学生AWARDでは一度敗れながらも、観客投票のワイルドカードで決勝の舞台へ。伝え方ひとつで、人の心も結果も動く。それを身をもって知りました。</p>
         <!-- スマホだけで表示する写真（写真を変えるときは images/speaking-wide.jpg を差し替え） -->
         <figure class="about-inline rimg">
           <img src="images/speaking-wide.jpg" alt="マイクを持って登壇する森山慎太郎" width="960" height="720" loading="lazy">
@@ -399,13 +415,14 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         -->
         <li class="reveal">
           <span class="date">2026.12</span>
-          <h3>学生プレゼンイベント「UNMUTE to ACTION」主催</h3>
-          <p>APU生が自分の挑戦を語るプレゼンイベントを企画。登壇者の募集からPR動画の制作まで手がけています。</p>
+          <h3>学生プレゼンイベント「UNMUTE to ACTION」主催<span class="badge soon">開催予定</span></h3>
+          <p>APU生が自分の挑戦を語るプレゼンイベントを企画中。登壇者の募集からPR動画の制作まで手がけています。</p>
         </li>
         <li class="reveal">
           <span class="date">2025</span>
-          <h3>第8回 東海学生AWARD2025 ファイナリスト<span class="badge">WILDCARD</span></h3>
-          <p>予選で一度は敗れるも、観客投票による敗者復活（ワイルドカード）から決勝へ進出。決勝では「わくッチ賞」を受賞。</p>
+          <h3>第8回 東海学生AWARD2025 ファイナリスト＆わくッチ賞<span class="badge">WILDCARD</span></h3>
+          <p>予選で一度は敗れるも、観客投票による敗者復活（ワイルドカード）で決勝へ。決勝の舞台では「わくッチ賞」を受賞しました。</p>
+          <div class="media-pair even">
           <figure class="rimg">
             <!-- 写真を変えるときは images/stage.jpg を差し替え（横長 3:2） -->
             <img src="images/stage.jpg" alt="東海学生AWARDの決勝の舞台で話す森山慎太郎。背後のスクリーンにWILDCARD 09と名前が映る" width="1400" height="933" loading="lazy">
@@ -416,11 +433,12 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
             <img src="images/award.jpg" alt="東海学生AWARDの舞台で、わくッチ賞のボードを持つ森山慎太郎" width="1344" height="855" loading="lazy">
             <figcaption>わくッチ賞の授賞</figcaption>
           </figure>
+          </div>
         </li>
         <li class="reveal">
           <span class="date">2024</span>
           <h3>クエストカップ2024 グランプリ＆Wow賞<span class="badge">W受賞</span></h3>
-          <p>チーム「布団が吹っ飛んだ!!」として、コーポレートアクセス部門でQグループグランプリ＆LINEヤフー企業賞を受賞。インターネットの世界に「触れる」触覚スーツ「ToucH」を提案しました。聖心学園中等教育学校として3度目のグランプリです。</p>
+          <p>チーム「布団が吹っ飛んだ!!」として、インターネットの世界に「触れる」触覚スーツ「ToucH」を提案。コーポレートアクセス部門で「Qグループグランプリ＆LINEヤフー企業賞」を受賞し、さらに参加者投票による「Wow賞」とのW受賞を果たしました。聖心学園中等教育学校として3度目のグランプリです。</p>
           <p class="award-note"><b>Wow賞とは</b>全国大会の参加者全員による投票で、最も優れたチームに贈られる賞。審査員だけでなく、会場にいた同世代の仲間からも一番の支持を集めた証です。</p>
           <div class="media-pair">
             <figure class="rimg">
@@ -459,7 +477,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           <a class="media-card" href="https://www.lycorp.co.jp/ja/story/20240508/itpd.html" target="_blank" rel="noopener">
             <span class="src"><b>LINEヤフー株式会社</b><span class="kind">チームとして掲載</span></span>
             <h3>壁を乗り越え、楽しむ未来へ LINEヤフーと高校生の「未来の対話」</h3>
-            <p>2024.05.08｜LINEヤフー賞を受賞したチームとして本社に招かれ、執行役員の方々と対談しました。</p>
+            <p>2024.05.08｜LINEヤフー企業賞を受賞したチームとして本社に招かれ、執行役員の方々と対談しました。</p>
             <span class="more">記事を読む →</span>
           </a>
         </li>
@@ -467,7 +485,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           <a class="media-card" href="https://quest.eduq.jp/questcup2024tokushu/" target="_blank" rel="noopener">
             <span class="src"><b>QUEST EDUCATION</b><span class="kind sub">大会特集</span></span>
             <h3>探究学習の祭典「クエストカップ2024 全国大会」グランプリ受賞チーム特集</h3>
-            <p>全国6,099チームの中から選ばれたグランプリ受賞チームとして紹介されています。</p>
+            <p>全国から6,099チームがエントリーした大会の、グランプリ受賞チームとして紹介されています。</p>
             <span class="more">記事を読む →</span>
           </a>
         </li>
@@ -522,6 +540,14 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           </ul>
         </article>
       </div>
+
+      <!-- 依頼の流れ -->
+      <h3 class="flow-title reveal">ご依頼の流れ</h3>
+      <ol class="flow">
+        <li class="reveal"><span class="step">STEP 1</span><b>フォームでご相談</b><p>内容・時期・人数など、決まっている範囲でお送りください。</p></li>
+        <li class="reveal"><span class="step">STEP 2</span><b>打ち合わせ</b><p>オンラインで目的やゴールをすり合わせ、内容をご提案します。</p></li>
+        <li class="reveal"><span class="step">STEP 3</span><b>講座・伴走スタート</b><p>本番まで一緒に走ります。終わったあとの振り返りまで行います。</p></li>
+      </ol>
     </div>
   </section>
 
@@ -613,7 +639,7 @@ if (!REDUCE && window.Lenis){
 })();
 
 /* ---- カードやタイムラインを少しずつずらして表示 ---- */
-document.querySelectorAll('.services, .media-list, .timeline, .profile').forEach(group => {
+document.querySelectorAll('.services, .media-list, .timeline, .profile, .flow').forEach(group => {
   [...group.children].forEach((el, i) => {
     const t = el.classList.contains('reveal') ? el : el.querySelector('.reveal');
     if (t) t.style.transitionDelay = Math.min(i, 5) * 110 + 'ms';
