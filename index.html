@@ -176,6 +176,19 @@ header.scrolled{border-color:var(--line)}
 @media (max-width:640px){.media-pair{grid-template-columns:1fr 1fr;gap:10px}.media-pair img{aspect-ratio:1/1!important;object-fit:cover}}
 .timeline figcaption{font-size:13px;color:var(--sub);margin-top:4px}
 
+/* ---------- 掲載メディア ---------- */
+.media-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.media-card{display:flex;flex-direction:column;gap:8px;height:100%;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;color:var(--ink);transition:transform .3s, box-shadow .3s, border-color .3s}
+.media-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.07);border-color:var(--accent)}
+.media-card .src{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:var(--sub)}
+.media-card .src b{color:var(--ink);font-size:14px}
+.media-card .kind{flex-shrink:0;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:rgba(196,0,124,.1);color:var(--accent)}
+.media-card .kind.sub{background:#EEEEE8;color:var(--sub)}
+.media-card h3{font-family:var(--font-head);font-weight:700;font-size:18px;line-height:1.55;margin:4px 0 0}
+.media-card p{margin:0;font-size:14px;color:var(--sub);line-height:1.7}
+.media-card .more{margin-top:auto;padding-top:8px;font-size:14px;font-weight:700;color:var(--accent)}
+@media (max-width:900px){ .media-list{grid-template-columns:1fr} }
+
 /* ---------- やっていること ---------- */
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .service{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 22px 18px;transition:transform .3s, box-shadow .3s}
@@ -241,6 +254,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#works">実績</a></li>
+        <li><a href="#media">メディア</a></li>
         <li><a href="#services">できること</a></li>
         <li><a class="cta-mini" href="#contact">お問い合わせ</a></li>
       </ul>
@@ -352,7 +366,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         <li class="reveal">
           <span class="date">2024</span>
           <h3>クエストカップ2024 グランプリ</h3>
-          <p>聖心学園中等教育学校として、同校3度目の優勝。</p>
+          <p>チーム「布団が吹っ飛んだ!!」として、コーポレートアクセス部門でQグループグランプリ＆LINEヤフー企業賞を受賞。インターネットの世界に「触れる」触覚スーツ「ToucH」を提案しました。聖心学園中等教育学校として3度目のグランプリです。</p>
           <div class="media-pair">
             <figure>
               <!-- 動画を変えるときは images/questcup.mp4（と表紙画像 questcup-poster.jpg）を差し替え -->
@@ -368,6 +382,41 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         </li>
         <!-- メディア掲載などもここに同じ形で追加できます -->
       </ol>
+    </div>
+  </section>
+
+  <!-- ===== 掲載メディア =====
+       記事を追加するときは <li>〜</li> を1つコピーして、URL・サイト名・タイトル・日付を書き換えてください -->
+  <section id="media">
+    <div class="wrap">
+      <p class="en">Media</p>
+      <h2 class="reveal">掲載メディア</h2>
+      <ul class="media-list">
+        <li class="reveal">
+          <a class="media-card" href="https://quest.eduq.jp/seishinfamily/" target="_blank" rel="noopener">
+            <span class="src"><b>QUEST EDUCATION</b><span class="kind">インタビュー</span></span>
+            <h3>全国大会で3度目のグランプリ受賞。聖心学園中等教育学校の探究事例</h3>
+            <p>2024.03.29｜グランプリを受賞したチーム「布団が吹っ飛んだ!!」へのインタビューが掲載されています。</p>
+            <span class="more">記事を読む →</span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="media-card" href="https://www.lycorp.co.jp/ja/story/20240508/itpd.html" target="_blank" rel="noopener">
+            <span class="src"><b>LINEヤフー株式会社</b><span class="kind">チームとして掲載</span></span>
+            <h3>壁を乗り越え、楽しむ未来へ LINEヤフーと高校生の「未来の対話」</h3>
+            <p>2024.05.08｜LINEヤフー賞を受賞したチームとして本社に招かれ、執行役員の方々と対談しました。</p>
+            <span class="more">記事を読む →</span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="media-card" href="https://quest.eduq.jp/questcup2024tokushu/" target="_blank" rel="noopener">
+            <span class="src"><b>QUEST EDUCATION</b><span class="kind sub">大会特集</span></span>
+            <h3>探究学習の祭典「クエストカップ2024 全国大会」グランプリ受賞チーム特集</h3>
+            <p>全国6,099チームの中から選ばれたグランプリ受賞チームとして紹介されています。</p>
+            <span class="more">記事を読む →</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
