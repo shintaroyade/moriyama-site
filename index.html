@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>森山慎太郎 | 伝える力で、挑戦する人を前へ。</title>
+<title>森山慎太郎（Shintaro Moriyama）| 伝える力で、挑戦する人を前へ。</title>
 <meta name="description" content="森山慎太郎（APU 国際経営学部）。プレゼン指導・イベント企画・学校向けの伴走・Webサイト制作で、挑戦する人の背中を押しています。">
 <!-- SNSでシェアされたときの表示 -->
 <meta property="og:title" content="森山慎太郎 | 伝える力で、挑戦する人を前へ。">
@@ -12,6 +12,26 @@
 <meta property="og:url" content="https://shintaroyade.github.io/moriyama-site/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0F0F12">
+<link rel="canonical" href="https://shintaroyade.github.io/moriyama-site/">
+<!-- タブのアイコン -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<!-- Google検索に「人物」として理解してもらうための情報 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "森山慎太郎",
+  "alternateName": "Shintaro Moriyama",
+  "url": "https://shintaroyade.github.io/moriyama-site/",
+  "image": "https://shintaroyade.github.io/moriyama-site/images/hero.jpg",
+  "description": "立命館アジア太平洋大学（APU）国際経営学部。プレゼン指導・イベント企画・学校向けの伴走・Webサイト制作で、挑戦する人の背中を押している。",
+  "affiliation": {"@type": "CollegeOrUniversity", "name": "立命館アジア太平洋大学"},
+  "homeLocation": {"@type": "Place", "name": "兵庫県"},
+  "award": ["クエストカップ2024 グランプリ", "第8回 東海学生AWARD2025 ファイナリスト"]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +56,9 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.8;letter-spacing:.02em}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent)}
@@ -214,9 +237,18 @@ header.scrolled{border-color:var(--line)}
 .socials a:hover{border-color:var(--accent-light);color:var(--accent-light)}
 footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--font-en);font-size:13px;padding:20px 0 28px;border-top:1px solid #222228}
 
+/* ---------- スクロールの演出 ---------- */
+#progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--accent-light);transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
+.rimg{clip-path:inset(12% 0 12% 0 round 18px);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.rimg img,.rimg video{transform:scale(1.15);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.rimg.in{clip-path:inset(0 0 0 0 round 18px)}
+.rimg.in img,.rimg.in video{transform:scale(1)}
+[data-speed]{will-change:transform}
+.hero h1{will-change:transform,opacity}
+
 /* ---------- スクロールで表示 ---------- */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s, transform .8s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(36px);filter:blur(4px);transition:opacity 1s, transform 1.1s cubic-bezier(.2,.8,.2,1), filter 1s}
+.reveal.in{opacity:1;transform:none;filter:none}
 
 /* 動きを減らす設定の人にはアニメーションを出さない */
 @media (prefers-reduced-motion: reduce){
@@ -224,11 +256,14 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
   .reveal,.fade{opacity:1;transform:none}
   .hero h1 .line span{transform:none}
   .hero-photo img{clip-path:none}
+  .rimg,.rimg img,.rimg video{clip-path:none;transform:none}
+  #progress{display:none}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
+<div id="progress" aria-hidden="true"></div>
 
 <!-- ===== オープニング：火花が1つずつ連鎖して灯る ===== -->
 <div id="intro" aria-hidden="true">
@@ -284,7 +319,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           </div>
         </div>
       </div>
-      <div class="hero-photo">
+      <div class="hero-photo" data-speed="-0.05">
         <!-- 写真を変えるときは images/hero.jpg を差し替え（縦長 4:5 がきれいに収まります） -->
         <img src="images/hero.jpg" alt="ガッツポーズで笑う森山慎太郎" width="900" height="1125">
         <p class="tag fade">クエストカップ2024 <b>グランプリ</b></p>
@@ -308,7 +343,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
   <!-- ===== 2. About ===== -->
   <section id="about">
     <div class="wrap about-grid">
-      <div class="about-photo reveal">
+      <div class="about-photo reveal" data-speed="0.06">
         <!-- 写真を変えるときは images/speaking.jpg を差し替え -->
         <img src="images/speaking.jpg" alt="マイクを持って登壇する森山慎太郎" width="800" height="1000" loading="lazy">
       </div>
@@ -352,12 +387,12 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           <span class="date">2025</span>
           <h3>第8回 東海学生AWARD2025 ファイナリスト<span class="badge">WILDCARD</span></h3>
           <p>予選で一度は敗れるも、観客投票による敗者復活（ワイルドカード）から決勝へ進出。決勝では「わくッチ賞」を受賞。</p>
-          <figure>
+          <figure class="rimg">
             <!-- 写真を変えるときは images/stage.jpg を差し替え（横長 3:2） -->
             <img src="images/stage.jpg" alt="東海学生AWARDの決勝の舞台で話す森山慎太郎。背後のスクリーンにWILDCARD 09と名前が映る" width="1400" height="933" loading="lazy">
             <figcaption>第8回 東海学生AWARD2025 決勝の舞台</figcaption>
           </figure>
-          <figure>
+          <figure class="rimg">
             <!-- 写真を変えるときは images/award.jpg を差し替え -->
             <img src="images/award.jpg" alt="東海学生AWARDの舞台で、わくッチ賞のボードを持つ森山慎太郎" width="1344" height="855" loading="lazy">
             <figcaption>わくッチ賞の授賞</figcaption>
@@ -368,12 +403,12 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
           <h3>クエストカップ2024 グランプリ</h3>
           <p>チーム「布団が吹っ飛んだ!!」として、コーポレートアクセス部門でQグループグランプリ＆LINEヤフー企業賞を受賞。インターネットの世界に「触れる」触覚スーツ「ToucH」を提案しました。聖心学園中等教育学校として3度目のグランプリです。</p>
           <div class="media-pair">
-            <figure>
+            <figure class="rimg">
               <!-- 動画を変えるときは images/questcup.mp4（と表紙画像 questcup-poster.jpg）を差し替え -->
               <video src="images/questcup.mp4" poster="images/questcup-poster.jpg" controls autoplay playsinline muted loop preload="metadata" width="540" height="540"></video>
               <figcaption>決勝進出が決まった瞬間（音声はタップでON）</figcaption>
             </figure>
-            <figure>
+            <figure class="rimg">
               <!-- 写真を変えるときは images/questcup.jpg を差し替え -->
               <img src="images/questcup.jpg" alt="トロフィーを掲げて喜ぶクエストカップ2024のチーム" width="748" height="377" loading="lazy">
               <figcaption>グランプリのトロフィーを手に</figcaption>
@@ -485,6 +520,8 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
 
 <footer>© <span id="year">2026</span> Shintaro Moriyama</footer>
 
+<!-- ぬるぬるスクロール（Lenis） -->
+<script src="js/lenis.min.js"></script>
 <script>
 /* =========================================================
    ★ 連絡先リンクはここだけ書き換えればOK ★
@@ -518,6 +555,47 @@ const LABELS = {instagram:'Instagram', x:'X', line:'LINE', mail:'メール', nex
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
+/* ---- ぬるぬるスクロール＋パララックス ---- */
+const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lenis = null;
+if (!REDUCE && window.Lenis){
+  lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true, anchors: { offset: -70 } });
+  const raf = time => { lenis.raf(time); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+  lenis.stop();  // オープニング中は止めておく
+}
+(function(){
+  if (REDUCE) return;
+  const bar = document.getElementById('progress');
+  const header = document.querySelector('header');
+  const h1 = document.querySelector('.hero h1');
+  const movers = [...document.querySelectorAll('[data-speed]')];
+  function update(){
+    const y = window.scrollY, vh = window.innerHeight;
+    const max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    header.classList.toggle('scrolled', y > 10);
+    if (y < vh){ h1.style.transform = 'translateY(' + (y * 0.18) + 'px)'; h1.style.opacity = Math.max(0, 1 - y / (vh * 0.8)); }
+    movers.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const off = (r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.speed);
+      el.style.translate = '0 ' + off.toFixed(1) + 'px';
+    });
+  }
+  if (lenis) lenis.on('scroll', update);
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* ---- カードやタイムラインを少しずつずらして表示 ---- */
+document.querySelectorAll('.services, .media-list, .timeline, .profile').forEach(group => {
+  [...group.children].forEach((el, i) => {
+    const t = el.classList.contains('reveal') ? el : el.querySelector('.reveal');
+    if (t) t.style.transitionDelay = Math.min(i, 5) * 110 + 'ms';
+  });
+});
+
 /* ---- 火花の連鎖（オープニングとビジョンで共通） ---- */
 function lightChain(chain, step){
   const dots = chain.querySelectorAll('.dot');
@@ -545,9 +623,10 @@ function lightChain(chain, step){
     timers.forEach(clearTimeout);
     intro.classList.add('split','done');
     document.body.classList.add('ready');
+    if (lenis) lenis.start();
     setTimeout(() => intro.classList.add('gone'), 900);
   }
-  if (reduce){ intro.classList.add('done','gone'); document.body.classList.add('ready'); return; }
+  if (reduce){ intro.classList.add('done','gone'); document.body.classList.add('ready'); if (lenis) lenis.start(); return; }
   document.getElementById('introSkip').addEventListener('click', finish);
   later(() => lightChain(document.getElementById('introChain'), 200), 150);   // 火花が走る
   t.querySelectorAll('.ch').forEach((c,i) => later(() => c.classList.add('on'), 1150 + i*65)); // 言葉に点火
@@ -558,7 +637,7 @@ function lightChain(chain, step){
 
 /* ---- スクロールで要素をふわっと表示 ---- */
 (function(){
-  const items = document.querySelectorAll('.reveal');
+  const items = document.querySelectorAll('.reveal, .rimg');
   if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in')); return; }
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
