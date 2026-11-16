@@ -13,6 +13,9 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0F0F12">
 <link rel="canonical" href="https://shintaroyade.github.io/moriyama-site/">
+<link rel="alternate" hreflang="ja" href="https://shintaroyade.github.io/moriyama-site/">
+<link rel="alternate" hreflang="en" href="https://shintaroyade.github.io/moriyama-site/en/">
+<link rel="alternate" hreflang="x-default" href="https://shintaroyade.github.io/moriyama-site/">
 <!-- タブのアイコン -->
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
@@ -128,6 +131,11 @@ header.scrolled{border-color:var(--line)}
 @media (max-width:760px){ .nav ul li:not(:last-child){display:none} }
 @media (max-width:359px){ .logo{font-size:14px;letter-spacing:.02em} .nav .cta-mini{padding:7px 12px;font-size:14px} }
 
+.nav .lang{border:1.5px solid var(--ink);border-radius:999px;padding:6px 12px;font-family:var(--font-en);font-weight:700;font-size:13px;letter-spacing:.06em;white-space:nowrap}
+.nav .lang:hover{background:var(--ink);color:#fff}
+@media (max-width:760px){ .nav ul li.lang-li{display:list-item!important} .nav ul{gap:8px;align-items:center} .logo{font-size:15px;letter-spacing:.02em;white-space:nowrap;margin-right:10px} }
+@media (max-width:374px){ .nav ul li:last-child{display:none} .logo{font-size:14px} }
+.h1-en{font-size:clamp(38px,9vw,68px)!important;line-height:1.15!important;letter-spacing:-.01em!important}
 /* ---------- ファーストビュー ---------- */
 .hero{padding:36px 0 56px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
@@ -338,6 +346,7 @@ footer{background:var(--dark);color:#8E8E99;text-align:center;font-family:var(--
         <li><a href="#works">実績</a></li>
         <li><a href="#media">メディア</a></li>
         <li><a href="#services">活動</a></li>
+        <li class="lang-li"><a class="lang" href="en/" hreflang="en" lang="en">EN</a></li>
         <li><a class="cta-mini" href="#contact">つながる</a></li>
       </ul>
     </nav>
